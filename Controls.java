@@ -95,7 +95,27 @@ public class Controls extends PApplet{
     {
       if(mouseX > 400 && mouseX < 655 && mouseY > 100 && mouseY < 355)
       {
-        alphaDots[mouseX - 400] = mouseY-100;
+        if(alphaBox)
+        {
+          alphaDots[mouseX - 400] = mouseY-100;
+        }
+
+        if(redBox)
+        {
+          redDots[mouseX - 400] = mouseY-100;
+        }
+
+       if(greenBox)
+        {
+          greenDots[mouseX - 400] = mouseY-100;
+        }
+        
+        if(blueBox)
+        {
+          blueDots[mouseX - 400] = mouseY-100;
+        }
+        
+                
       }
       
     } 
@@ -117,10 +137,15 @@ public class Controls extends PApplet{
     
     for(int i = 0; i < 256; i++)
     {
-      redDots[i] = (int)random(0,255);
-      greenDots[i] = (int)random(0,255);
-      blueDots[i] = (int)random(0,255);
-      alphaDots[i] = 150;
+//      redDots[i] = (int)random(0,255);
+//      greenDots[i] = (int)random(0,255);
+//      blueDots[i] = (int)random(0,255);
+//      alphaDots[i] = 150;
+
+      redDots[i] = 0;
+      greenDots[i] = 0;
+      blueDots[i] = 0;
+      alphaDots[i] = 0;
    
     }
   
@@ -130,7 +155,7 @@ public class Controls extends PApplet{
   public void drawDots()
   {
     
-    // for red 
+    // for alpha
     strokeWeight(2);
     beginShape(LINES);
     for(int i=0; i<256; i++)
@@ -139,6 +164,43 @@ public class Controls extends PApplet{
     }
     endShape();
     strokeWeight(1);
+    
+    // for red 
+    stroke(255, 0, 0);
+    strokeWeight(2);
+    beginShape(LINES);
+    for(int i=0; i<256; i++)
+    {
+      vertex(400+i, redDots[i]+100);
+    }
+    endShape();
+    strokeWeight(1);
+    stroke(0);
+        
+    // for green 
+    stroke(0, 255, 0);
+    strokeWeight(2);
+    beginShape(LINES);
+    for(int i=0; i<256; i++)
+    {
+      vertex(400+i, greenDots[i]+100);
+    }
+    endShape();
+    strokeWeight(1);
+    stroke(0);
+    
+    
+    // for blue 
+    stroke(0, 0, 255);
+    strokeWeight(2);
+    beginShape(LINES);
+    for(int i=0; i<256; i++)
+    {
+      vertex(400+i, blueDots[i]+100);
+    }
+    endShape();
+    strokeWeight(1);
+    stroke(0);
     
     
   }

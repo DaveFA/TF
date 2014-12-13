@@ -368,11 +368,18 @@ public class Controls extends PApplet{
     // my code 
     
    for(int i = 0; i < 256; i++){
-      red[i] = (int)random(0,255);
-      green[i] = (int)random(0,255);
-      blue[i] = (int)random(0,255);
-      alpha[i] = 150;
+//      red[i] = (int)random(0,255);
+//      green[i] = (int)random(0,255);
+//      blue[i] = (int)random(0,255);
+//      alpha[i] = 150;
+//   
+
+      red[i] = redDots[i];
+      green[i] = greenDots[i];
+      blue[i] = blueDots[i];
+      alpha[i] = alphaDots[i]*17;
    
+
     }
     
     volren.customRed = red;

@@ -128,6 +128,8 @@ public class Controls extends PApplet{
     // you may wish to only call this when you change the data
     updateTransferFunction();
   
+  
+   drawAxis();
 
 }
   
@@ -251,6 +253,24 @@ public class Controls extends PApplet{
   }
   
   
+  public void drawAxis()
+  {
+      arrow(380, 93, 380, 360);
+      text("0-255", 379, 380);
+      arrow(380, 93, 700, 93);
+  }
+  
+  public void arrow(int x1, int y1, int x2, int y2) 
+  {
+  line(x1, y1, x2, y2);
+  pushMatrix();
+  translate(x2, y2);
+  float a = atan2(x1-x2, y2-y1);
+  rotate(a);
+  line(0, 0, -10, -10);
+  line(0, 0, 10, -10);
+  popMatrix();
+  } 
   
   public void selectBox()
   {
